@@ -86,3 +86,6 @@ make deploy
 
 ## License
 MIT
+
+## Note
+fork from [mint-ui](https://github.com/ElemeFE/mint-ui/)
