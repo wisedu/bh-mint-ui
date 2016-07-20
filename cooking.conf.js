@@ -10,7 +10,7 @@ cooking.set({
 
   clean: true,
   format: 'umd',
-  moduleName: ['MINT', '[name]'],
+  moduleName: ['BHMINT', '[name]'],
   extractCSS: '[name]/style.css',
   extends: ['vue', 'lint', 'saladcss']
 });
@@ -24,16 +24,16 @@ cooking.add('output.filename', '[name]/index.js');
 var externals = {};
 Object.keys(Components).forEach(function (key) {
   externals[`packages/${key}/index.js`] = {
-    root: `MINT.index.${key}`,
-    commonjs: `mint-ui/lib/${key}`,
-    commonjs2: `mint-ui/lib/${key}`,
-    amd: `mint-ui/lib/${key}`
+    root: `BHMINT.index.${key}`,
+    commonjs: `bh-mint-ui/lib/${key}`,
+    commonjs2: `bh-mint-ui/lib/${key}`,
+    amd: `bh-mint-ui/lib/${key}`
   };
   externals[`packages/${key}/style.css`] = {
-    root: `MINT.index.${key}/style.css`,
-    commonjs: `mint-ui/lib/${key}/style.css`,
-    commonjs2: `mint-ui/lib/${key}/style.css`,
-    amd: `mint-ui/lib/${key}/style.css`
+    root: `BHMINT.index.${key}/style.css`,
+    commonjs: `bh-mint-ui/lib/${key}/style.css`,
+    commonjs2: `bh-mint-ui/lib/${key}/style.css`,
+    amd: `bh-mint-ui/lib/${key}/style.css`
   };
 });
 
