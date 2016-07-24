@@ -25,7 +25,7 @@
         <span class="mint-searchbar-text" v-text="placeholder"></span>
       </label>
     </div>
-    <div class="mint-search-list" v-show="value">
+    <div class="mint-search-list" v-show="value || result.length">
       <div class="mint-search-list-warp">
         <slot>
           <x-cell v-for="item in result" track-by="$index" :title="item"></x-cell>
