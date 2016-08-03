@@ -12,6 +12,8 @@
         :placeholder="placeholder"
         v-if="type === 'textarea'"
         :rows="rows"
+        :disabled="disabled"
+        :readonly="readonly"
         v-model="value">
       </textarea>
       <input
@@ -21,6 +23,8 @@
         v-else
         :type="type"
         @focus="active = true"
+        :disabled="disabled"
+        :readonly="readonly"
         v-model="value">
       <div
         @click="value = ''"
@@ -37,9 +41,12 @@
 </template>
 
 <script>
-import 'main/assets/font/iconfont.css';
 import XCell from 'packages/cell/index.js';
 import Clickoutside from 'vue-clickoutside';
+if (process.env.IMPORTCSS) {
+  require('packages/cell/style.css');
+  require('packages/font/style.css');
+}
 
 /**
  * mt-field
@@ -50,6 +57,8 @@ import Clickoutside from 'vue-clickoutside';
  * @param {string} [label] - 标签
  * @param {string} [rows] - textarea 的 rows
  * @param {string} [placeholder] - placeholder
+ * @param {string} [disabled] - disabled
+ * @param {string} [readonly] - readonly
  * @param {string} [state] - 表单校验状态样式，接受 error, warning, success
  *
  * @example
@@ -79,6 +88,8 @@ export default {
     rows: String,
     label: String,
     placeholder: String,
+    readonly: Boolean,
+    disabled: Boolean,
     state: {
       type: String,
       default: 'default'

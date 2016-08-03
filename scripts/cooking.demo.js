@@ -1,15 +1,15 @@
 var path = require('path');
 var cooking = require('cooking');
-var Components = require('./components.json');
+var webpack = require('webpack');
 
 cooking.set({
   use: 'vue',
   entry: {
-    app: './example/entry.js',
+    app: path.join(__dirname, '../example/entry.js'),
     vendor: ['vue', 'vue-router', 'fastclick']
   },
-  dist: './example/dist',
-  template: './example/index.tpl',
+  dist: '../example/dist',
+  template: path.join(__dirname, '../example/index.tpl'),
   devServer: {
     port: 8789,
     hostname: require('my-local-ip')(),
@@ -27,22 +27,17 @@ cooking.set({
 });
 
 cooking.add('resolve.alias', {
-  'main': path.join(__dirname, 'src'),
-  'src': path.join(__dirname, 'src'),
-  'packages': path.join(__dirname, 'packages')
+  'main': path.join(__dirname, '../src'),
+  'src': path.join(__dirname, '../src'),
+  'packages': path.join(__dirname, '../packages')
 });
 
 cooking.add('preLoader.js.exclude', /node_modules|lib/);
 cooking.add('preLoader.vue.exclude', /node_modules|lib/);
 
-var externals = {};
-Object.keys(Components).forEach(function (key) {
-  externals[`packages/${key}/style.css`] = 'null';
-});
-
-// 开发模式不需要将不存在的 style.css 打包进去
-cooking.add('externals', externals);
-
+cooking.add('plugin.defiendImportCSS', new webpack.DefinePlugin({
+  'process.env.IMPORTCSS': JSON.stringify(false)
+}));
 if (process.env.NODE_ENV === 'production') {
   cooking.remove('entry.vendor');
   cooking.add('externals.vue', 'Vue');

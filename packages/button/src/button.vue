@@ -6,7 +6,7 @@
         'is-plain': plain
       }]"
     @touchstart="handleClick">
-    <span class="mint-button-icon">
+    <span class="mint-button-icon" v-if="icon || _slotContents.icon">
       <slot name="icon">
         <i v-if="icon" class="mintui" :class="'mintui-' + icon"></i>
       </slot>
@@ -16,7 +16,9 @@
 </template>
 
 <script>
-import 'main/assets/font/iconfont.css';
+if (process.env.IMPORTCSS) {
+  require('packages/font/style.css');
+}
 
 /**
  * mt-header
@@ -88,7 +90,6 @@ export default {
       display: block;
       font-size: 18px;
       height: 41px;
-      line-height: 2.6rem;
       outline: 0;
       overflow: hidden;
       position: relative;
@@ -107,6 +108,7 @@ export default {
 
       @descendent icon {
         vertical-align: middle;
+        display: inline-block;
       }
 
       @modifier default {
@@ -151,14 +153,13 @@ export default {
 
       @modifier normal {
         display: inline-block;
-        padding: 0 0.75rem;
+        padding: 0 12px;
       }
 
       @modifier small {
         display: inline-block;
         font-size: 14px;
-        padding: 0 0.75rem;
-        line-height: 2rem;
+        padding: 0 12px;
         height: 33px;
       }
 
