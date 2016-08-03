@@ -66,6 +66,16 @@
         "path": "/picker",
         "name": "Picker",
         "icon": "picker"
+      },
+      {
+        "path": "/datetime-picker",
+        "name": "Datetime Picker",
+        "icon": "time"
+      },
+      {
+        "path": "/index-list",
+        "name": "Index List",
+        "icon": "alphabet"
       }
     ]
   },

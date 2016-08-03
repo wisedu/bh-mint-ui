@@ -1,40 +1,37 @@
 var path = require('path');
 var cooking = require('cooking');
-var Components = require('./components.json');
+var Components = require('../components.json');
+var webpack = require('webpack');
+var entries = {};
+
+Object.keys(Components).forEach(compo => {
+  entries[compo] = path.join(__dirname, '../', Components[compo]);
+});
 
 cooking.set({
   use: 'vue',
   entry: Components,
   dist: './lib/',
+  clean: false,
   template: false,
-
-  clean: true,
   format: 'umd',
   moduleName: ['BHMINT', '[name]'],
   extractCSS: '[name]/style.css',
   extends: ['vue', 'lint', 'saladcss']
 });
 
+cooking.remove('output.publicPath');
+
 cooking.add('resolve.alias', {
-  'main': path.join(__dirname, 'src'),
-  'packages': path.join(__dirname, 'packages')
+  'main': path.join(__dirname, '../src'),
+  'packages': path.join(__dirname, '../packages')
 });
 cooking.add('output.filename', '[name]/index.js');
 
 var externals = {};
 Object.keys(Components).forEach(function (key) {
-  externals[`packages/${key}/index.js`] = {
-    root: `BHMINT.index.${key}`,
-    commonjs: `bh-mint-ui/lib/${key}`,
-    commonjs2: `bh-mint-ui/lib/${key}`,
-    amd: `bh-mint-ui/lib/${key}`
-  };
-  externals[`packages/${key}/style.css`] = {
-    root: `BHMINT.index.${key}/style.css`,
-    commonjs: `bh-mint-ui/lib/${key}/style.css`,
-    commonjs2: `bh-mint-ui/lib/${key}/style.css`,
-    amd: `bh-mint-ui/lib/${key}/style.css`
-  };
+  externals[`packages/${key}/index.js`] = `mint-ui/lib/${key}`;
+  externals[`packages/${key}/style.css`] = `mint-ui/lib/${key}/style.css`;
 });
 
 cooking.add('externals', Object.assign({
@@ -46,6 +43,9 @@ cooking.add('externals', Object.assign({
   }
 }, externals));
 
+cooking.add('plugin.defiendImportCSS', new webpack.DefinePlugin({
+  'process.env.IMPORTCSS': JSON.stringify(true)
+}));
 cooking.add('preLoader.js.exclude', /node_modules|lib/);
 cooking.add('preLoader.vue.exclude', /node_modules|lib/);
 

@@ -1,6 +1,5 @@
 var cooking = require('cooking');
 var path = require('path');
-var webpack = require('webpack');
 
 cooking.set({
   entry: {
@@ -9,7 +8,7 @@ cooking.set({
   dist: path.join(__dirname, 'lib'),
   template: false,
   format: 'umd',
-  moduleName: 'MintIndicator',
+  moduleName: 'MintIndexSection',
   extractCSS: 'style.css',
 
   extends: ['vue', 'saladcss']
@@ -28,9 +27,5 @@ cooking.add('externals', {
     amd: 'vue'
   }
 });
-
-cooking.add('plugin.defiendImportCSS', new webpack.DefinePlugin({
-  'process.env.IMPORTCSS': JSON.stringify(false)
-}));
 
 module.exports = cooking.resolve();
