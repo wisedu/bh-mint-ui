@@ -8,7 +8,7 @@ cooking.set({
     app: path.join(__dirname, '../example/entry.js'),
     vendor: ['vue', 'vue-router', 'fastclick']
   },
-  dist: '../example/dist',
+  dist: './example/dist/',
   template: path.join(__dirname, '../example/index.tpl'),
   devServer: {
     port: 8789,
@@ -19,7 +19,7 @@ cooking.set({
 
   clean: true,
   hash: true,
-  publicPath: '/mint-ui/',
+  publicPath: '/bh-mint-ui/',
   assetsPath: 'static',
   urlLoaderLimit: 10000,
   extractCSS: true,
