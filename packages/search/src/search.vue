@@ -25,22 +25,10 @@
         <span class="mint-searchbar-text" v-text="placeholder"></span>
       </label>
     </div>
-    <div class="mint-search-list" v-show="value || result.length">
-      <div class="mint-search-list-warp">
-        <slot>
-          <x-cell v-for="item in result" track-by="$index" :title="item"></x-cell>
-        </slot>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-import XCell from 'packages/cell/index.js';
-if (process.env.IMPORTCSS) {
-  require('packages/cell/style.css');
-}
-
 /**
  * mt-search
  * @module components/search
@@ -65,11 +53,6 @@ export default {
       visible: false
     };
   },
-
-  components: {
-    XCell
-  },
-
   props: {
     value: String,
     cancelText: {
@@ -89,8 +72,6 @@ export default {
 
   @component-namespace mint {
     @component search {
-      height: 100%;
-      height: 100vh;
       overflow: hidden;
     }
 
