@@ -259,7 +259,7 @@
         if (this.scrollEventTarget === window) {
           return document.body.scrollTop + document.documentElement.clientHeight === document.body.scrollHeight;
         } else {
-          return this.$el.getBoundingClientRect().bottom <= this.scrollEventTarget.getBoundingClientRect().bottom;
+          return this.scrollEventTarget.scrollHeight <= this.scrollEventTarget.scrollTop + this.scrollEventTarget.clientHeight;
         }
       },
 
