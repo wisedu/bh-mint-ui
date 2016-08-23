@@ -35,7 +35,7 @@
       },
 
       openConfirm() {
-        MessageBox.confirm('确定执行此操作?', '提示');
+        MessageBox.confirm('确定执行此操作?', '提示').then(() => {}, () => {});
       },
 
       openPrompt() {
