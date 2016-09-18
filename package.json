@@ -40,7 +40,7 @@
     "my-local-ip": "^1.0.0",
     "uppercamelcase": "^1.1.0",
     "vue": "^1.0.26",
-    "vue-calendar-mobile": "0.0.3",
+    "vue-calendar-mobile": "0.0.4",
     "vue-clickoutside": "0.0.4",
     "vue-infinite-scroll": "^0.2.3",
     "vue-lazyload": "^0.4.3",
