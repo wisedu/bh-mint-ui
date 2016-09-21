@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/v/mint-ui.svg?maxAge=3600)](https://www.npmjs.com/package/mint-ui)
 ![JS gzip size](https://badge-size.herokuapp.com/elemefe/mint-ui/master/lib/index.js.svg?compression=gzip&label=gzip%20size:%20JS)
 ![CSS gzip size](https://badge-size.herokuapp.com/elemefe/mint-ui/master/lib/style.css.svg?compression=gzip&label=gzip%20size:%20CSS)
+[![Coverage Status](https://coveralls.io/repos/github/wisedu/bh-mint-ui/badge.svg?branch=master)](https://coveralls.io/github/wisedu/bh-mint-ui?branch=master)
 
 > Mobile UI elements for vue.js
 
