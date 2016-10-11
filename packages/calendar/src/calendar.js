@@ -3,3 +3,4 @@ import 'vue-calendar-mobile/lib/index.css';
 
 Calendar.name = 'mt-calendar';
 module.exports = Calendar;
+
