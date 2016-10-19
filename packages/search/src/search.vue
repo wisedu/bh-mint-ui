@@ -13,7 +13,7 @@
       </div>
       <a
         class="mint-searchbar-cancel"
-        @click="visible = false, value = ''"
+        @click="visible = false, value = '', $emit('cancel')"
         v-show="visible"
         v-text="cancelText">
       </a>

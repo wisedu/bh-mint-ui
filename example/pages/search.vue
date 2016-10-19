@@ -1,6 +1,6 @@
 <template>
   <div class="page-search">
-    <mt-search :value.sync="value" :result="defaultResult | filterBy value"></mt-search>
+    <mt-search :value.sync="value" :result="defaultResult | filterBy value" @cancel="cancel"></mt-search>
   </div>
 </template>
 
@@ -30,6 +30,11 @@ export default {
         'Other'
       ]
     };
+  },
+  methods: {
+    cancel() {
+      console.log('cancel');
+    }
   }
 };
 </script>
