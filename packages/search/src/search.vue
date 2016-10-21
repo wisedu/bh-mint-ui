@@ -47,7 +47,6 @@
  */
 export default {
   name: 'mt-search',
-
   data() {
     return {
       visible: false
@@ -61,7 +60,16 @@ export default {
     placeholder: {
       default: '搜索'
     },
+    autofocus: {
+      default: false
+    },
     result: Array
+  },
+  attached() {
+    if (this.autofocus) {
+      this.$els.input.focus();
+      this.visible = true;
+    }
   }
 };
 </script>

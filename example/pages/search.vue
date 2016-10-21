@@ -1,6 +1,6 @@
 <template>
   <div class="page-search">
-    <mt-search :value.sync="value" :result="defaultResult | filterBy value" @cancel="cancel"></mt-search>
+    <mt-search :value.sync="value" :result="defaultResult | filterBy value" @cancel="cancel" :autofocus="true"></mt-search>
   </div>
 </template>
 
