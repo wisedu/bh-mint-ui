@@ -19,7 +19,7 @@ cooking.set({
 
   clean: true,
   hash: true,
-  publicPath: '/bh-mint-ui/',
+  publicPath: './',
   assetsPath: 'static',
   urlLoaderLimit: 10000,
   extractCSS: true,
@@ -38,11 +38,13 @@ cooking.add('preLoader.vue.exclude', /node_modules|lib/);
 cooking.add('plugin.defiendImportCSS', new webpack.DefinePlugin({
   'process.env.IMPORTCSS': JSON.stringify(false)
 }));
+/*
 if (process.env.NODE_ENV === 'production') {
   cooking.remove('entry.vendor');
   cooking.add('externals.vue', 'Vue');
   cooking.add('externals.vue-router', 'VueRouter');
   cooking.add('fastclick', 'FastClick');
 }
+*/
 
 module.exports = cooking.resolve();
