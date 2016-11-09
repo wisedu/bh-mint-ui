@@ -41,7 +41,7 @@
     "vue-swipe": "^0.2.7",
     "vue-toast-mobile": "^0.1.3",
     "wind-dom": "0.0.3",
-    "vue-calendar-mobile": "0.0.7"
+    "vue-calendar-mobile": "0.1.1"
   },
   "devDependencies": {
     "kanpai": "^0.6.0",

@@ -2,22 +2,6 @@
   <div class="page-calendar">
     <div class="page-title">Calendar</div>
     <mt-calendar></mt-calendar>
-    <mt-calendar
-      :decorate="decorate"
-      :view="'month'"
-      :selected.sync="selected">
-    </mt-calendar>
-    <mt-calendar
-      :decorate="decorate"
-      :view="'week'"
-      :selected.sync="selected">
-    </mt-calendar>
-    <mt-calendar
-      :start-monday="true"
-      :decorate="decorate"
-      :view="'week'"
-      :selected.sync="selected">
-    </mt-calendar>
   </div>
 </template>
 
